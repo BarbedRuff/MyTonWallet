@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package com.genss.mytonwallet.presentation.screen
+package com.genss.auth.presentation.screen
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -35,13 +35,13 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.genss.mytonwallet.presentation.uikit.buttonText
-import com.genss.mytonwallet.ui.theme.Blue
-import com.genss.mytonwallet.ui.theme.Gray
-import com.genss.mytonwallet.ui.theme.LightGray
-import com.genss.mytonwallet.ui.theme.RedError
-import com.genss.mytonwallet.ui.theme.Typography
-import com.genss.mytonwallet.ui.theme.White
+import com.genss.auth.theme.Typography
+import com.genss.auth.theme.Blue
+import com.genss.auth.theme.White
+import com.genss.auth.theme.Gray
+import com.genss.auth.theme.RedError
+import com.genss.auth.theme.LightGray
+
 
 @Composable
 fun ImportWallet(backAction: () -> Unit) {
@@ -58,7 +58,9 @@ fun ImportWallet(backAction: () -> Unit) {
         LazyColumn(
             state = scrollState,
             modifier = Modifier
-                .padding(paddingValues = paddings)
+                .padding(
+                    top = paddings.calculateTopPadding()
+                )
                 .fillMaxSize()
         ) {
             item {
@@ -71,7 +73,7 @@ fun ImportWallet(backAction: () -> Unit) {
                     style = Typography.bodyLarge
                 )
             }
-            item{
+            item {
                 Text(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -114,7 +116,11 @@ fun ContinueButton(
             .fillMaxWidth()
             .padding(bottom = 48.dp, start = 48.dp, end = 48.dp)
     ) {
-        buttonText(text = "Continue", color = White)
+        Text(
+            text = "Continue",
+            color = White,
+            style = Typography.labelMedium
+        )
     }
 }
 
@@ -135,7 +141,7 @@ fun NavigationBar(backAction: () -> Unit, topBarVisible: MutableState<Boolean>) 
                 contentDescription = null,
             )
         }
-        if(topBarVisible.value)
+        if (topBarVisible.value)
             Text(
                 text = "Import wallet",
                 style = Typography.headlineMedium

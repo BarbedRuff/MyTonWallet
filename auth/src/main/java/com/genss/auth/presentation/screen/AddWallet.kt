@@ -1,4 +1,4 @@
-package com.genss.mytonwallet.presentation.screen
+package com.genss.auth.presentation.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -17,11 +17,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.genss.mytonwallet.R
-import com.genss.mytonwallet.presentation.uikit.buttonText
-import com.genss.mytonwallet.ui.theme.Blue
-import com.genss.mytonwallet.ui.theme.Typography
-import com.genss.mytonwallet.ui.theme.White
+import com.genss.auth.theme.Blue
+import com.genss.auth.theme.White
+import com.genss.auth.theme.Typography
+import com.genss.auth.R
 
 @Composable
 fun CreateWalletScreen(
@@ -71,7 +70,11 @@ fun CreateWalletButton(
             .fillMaxWidth()
             .padding(bottom = 16.dp, start = 46.dp, end = 46.dp)
     ) {
-       buttonText(text = "Create New Wallet", color = White)
+        Text(
+            text = "Create New Wallet",
+            color = White,
+            style = Typography.labelMedium
+        )
     }
 }
 
@@ -87,6 +90,10 @@ fun ImportExistingButton(
             .fillMaxWidth()
             .padding(start = 46.dp, end = 46.dp)
     ) {
-        buttonText(text = "Import Existing Wallet", color = Blue)
+        Text(
+            text = "Import Existing Wallet",
+            color = Blue,
+            style = Typography.labelMedium
+        )
     }
 }

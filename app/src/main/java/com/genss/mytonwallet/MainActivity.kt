@@ -1,4 +1,4 @@
-package com.genss.mytonwallet.presentation
+package com.genss.mytonwallet
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -12,9 +12,11 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.genss.mytonwallet.presentation.screen.Create
-import com.genss.mytonwallet.presentation.screen.CreateWalletScreen
-import com.genss.mytonwallet.presentation.screen.ImportWallet
+import com.genss.auth.presentation.screen.Create
+import com.genss.auth.presentation.screen.CreateWalletScreen
+import com.genss.auth.presentation.screen.ImportWallet
+import com.genss.auth.presentation.screen.Wallet
+import com.genss.auth.presentation.screen.WebViewScreen
 import com.genss.mytonwallet.ui.theme.MyTonWalletTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,6 +30,7 @@ class MainActivity : ComponentActivity() {
                 Scaffold(
                     modifier = Modifier.fillMaxSize()
                 ) { innerPadding ->
+                    WebViewScreen()
                     navController = rememberNavController()
                     NavHost(
                         modifier = Modifier
@@ -42,12 +45,15 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable("createWallet") {
-                            Create(
-                                {}
-                            )
+                            Create {
+                                navController.navigate("MainWallet")
+                            }
                         }
-                        composable("importWallet"){
+                        composable("importWallet") {
                             ImportWallet { navController.popBackStack() }
+                        }
+                        composable("MainWallet") {
+                            Wallet()
                         }
                     }
                 }

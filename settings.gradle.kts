@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "MyTonWallet"
 include(":app")
- 
+include(":auth")

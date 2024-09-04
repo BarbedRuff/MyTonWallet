@@ -1,4 +1,4 @@
-package com.genss.mytonwallet.presentation.screen
+package com.genss.auth.presentation.screen
 
 import android.os.Build.VERSION.SDK_INT
 import androidx.compose.foundation.Image
@@ -24,11 +24,11 @@ import coil.decode.GifDecoder
 import coil.decode.ImageDecoderDecoder
 import coil.request.ImageRequest
 import coil.size.Size
-import com.genss.mytonwallet.R
-import com.genss.mytonwallet.presentation.uikit.buttonText
-import com.genss.mytonwallet.ui.theme.Blue
-import com.genss.mytonwallet.ui.theme.Typography
-import com.genss.mytonwallet.ui.theme.White
+import com.genss.auth.R
+import com.genss.auth.theme.Typography
+import com.genss.auth.theme.White
+import com.genss.auth.theme.Blue
+
 
 @Composable
 fun Create(
@@ -95,6 +95,10 @@ fun SetUpPasscode(
             .fillMaxWidth()
             .padding(bottom = 16.dp, start = 48.dp, end = 48.dp)
     ) {
-        buttonText(text = "Set Up Passcode", color = White)
+        Text(
+            text = "Set Up Passcode",
+            color = White,
+            style = Typography.labelMedium
+        )
     }
 }
