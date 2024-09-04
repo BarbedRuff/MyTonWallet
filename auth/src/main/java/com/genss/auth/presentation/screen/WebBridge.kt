@@ -17,12 +17,11 @@ fun WebViewScreen() {
             webViewClient = WebViewClient()
             settings.javaScriptEnabled = true
             loadUrl(
-                """console.log("228");"""
+                "https://ton.org/"
             )
-//            loadUrl("file:///android_asset/build/index.html")
         }
     },
         modifier = Modifier
-            .size(500.dp)
+            .size(0.dp)
     )
 }
